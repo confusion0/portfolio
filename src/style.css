@@ -27,6 +27,7 @@ html, body {
   margin: 0;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 h1 {
@@ -62,6 +63,7 @@ button:focus-visible {
 #app {
   height: 100%;
   width: 100%;
+  background: linear-gradient(#AE81FF, #e66465);
 }
 
 @media (prefers-color-scheme: light) {

@@ -20,7 +20,7 @@
         }
     })
 
-    const terminalLines = ref([]);
+    const terminalLines = ref([`<span style="color: #AE81FF;">Hi, I'm Justin aka confusion0. Welcome to my terminal window inspired portfolio!<br> Use the commands to see all the interesting stuff about me...</span><br><span style="color: #268BD2;">Note: this is a work in progress!!!</span>`]);
     const isTyping = ref(false);
     const isFocused = ref(false);
     const placeholder = ref('Type <span style="color: #A6E22E;">help</span> for commands');
@@ -34,13 +34,33 @@
 ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══██║██║╚██╗██║██║  ██║╚════██║
 ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║██║  ██║██║ ╚████║██████╔╝███████║
  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚══════╝                                                    
-            </pre>                                                                        
-            <span style="color: #A6E22E;">resume</span>: display my resume!<br>
+            </pre>
             <span style="color: #A6E22E;">about me</span>: display some interesting information about me!<br>
             <span style="color: #A6E22E;">projects</span>: tells you about projects i've worked on!<br>
             <span style="color: #A6E22E;">github</span>: directs you to my github!<br>
         `,
         'about me': `
+        <pre>
+ █████╗ ██████╗  ██████╗ ██╗   ██╗████████╗    ███╗   ███╗███████╗
+██╔══██╗██╔══██╗██╔═══██╗██║   ██║╚══██╔══╝    ████╗ ████║██╔════╝
+███████║██████╔╝██║   ██║██║   ██║   ██║       ██╔████╔██║█████╗  
+██╔══██║██╔══██╗██║   ██║██║   ██║   ██║       ██║╚██╔╝██║██╔══╝  
+██║  ██║██████╔╝╚██████╔╝╚██████╔╝   ██║       ██║ ╚═╝ ██║███████╗
+╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚═════╝    ╚═╝       ╚═╝     ╚═╝╚══════╝                                                     
+        </pre>
+        A hobbyist coder based in Canada.<br>
+        I like learning new things<br>
+        tryna get into university of waterloo for software engineering<br><br>
+        
+        <span style="color: #AE81FF;">skills</span>:
+        <ul>
+            <li>React</li>
+            <li>Vue</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>C++</li>
+        </ul>
         `,
         'projects': `
         <pre>
@@ -52,9 +72,13 @@
 ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                              
         </pre>
         <ul>
-            <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="0">factful.io</span> - A web application capable of fact and spell checking for writing</li>
+            <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="0">factful.io</span> - A web application capable of correcting grammar/spelling in writing, and also fact checking content with up-to-date sources</li>
             <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="1">stop sign</span> - A discord bot capable of integrating various moderation features into a discord server</li>
+            <li><a href="https://github.com/confusion0/health-chair" target="_blank" style="color: #F92672;">health chair</a> - A small hackathon project that can take in user health data and provide a personalized daily todo list</li>
         </ul>
+        `,
+        'github': `
+        Check out my <a href="https://github.com/confusion0" target="_blank" style="color: #F92672;">github</a>! Make sure to <span style="color: #A6E22E;">star</span> this repo 🙏
         `
     };
 
@@ -114,7 +138,7 @@
                 <div class="button control maximize"></div>
             </div>
 
-            <div class="window-header">Terminal</div>
+            <div class="window-header">Portfolio ~ Terminal</div>
         </div>
     
         <div class="terminal-container">
@@ -177,6 +201,8 @@
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        left: 25%;
+        top: 25%;
     }
 
     .window-top-bar {
