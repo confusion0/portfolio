@@ -78,7 +78,7 @@
         </ul>
         `,
         'github': `
-        Check out my <a href="https://github.com/confusion0" target="_blank" style="color: #F92672;">github</a>! Make sure to <span style="color: #A6E22E;">star</span> this repo 🙏
+        Check out my <a href="https://github.com/confusion0" target="_blank" style="color: #268BD2;">github</a>! Make sure to <span style="color: #A6E22E;">star</span> this repo 🙏
         `
     };
 
