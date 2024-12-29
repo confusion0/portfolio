@@ -11,15 +11,27 @@
         url: {
             type: String,
             required: true
+        },
+        index: {
+            type: Number,
+            required: true
+        },
+        windows: {
+            type: Array,
+            required: true
         }
     })
+
+    function closeWindow() {
+        props.windows[props.index].isOpened = false;
+    }
 </script>
 
 <template>
     <div v-if="isOpened" class="window resize-drag" :style="{ zIndex: zIndex }">
         <div class="window-top-bar">
             <div class="window-controls">
-                <div class="button control close"></div>
+                <div class="button control close" @click="closeWindow()"></div>
                 <div class="button control minimize"></div>
                 <div class="button control maximize"></div>
             </div>

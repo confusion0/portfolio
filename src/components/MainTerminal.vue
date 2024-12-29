@@ -1,13 +1,21 @@
 <script setup>
-    import { ref } from 'vue';
+    import { onMounted, ref } from 'vue';
 
     const props = defineProps({
+        maxZIndex: {
+            type: Number,
+            required: true,
+        },
         isOpened: {
             type: Boolean,
             required: true
         },
         zIndex: {
             type: Number,
+            required: true
+        },
+        windows: {
+            type: Array,
             required: true
         }
     })
@@ -30,6 +38,7 @@
             <span style="color: #A6E22E;">resume</span>: display my resume!<br>
             <span style="color: #A6E22E;">about me</span>: display some interesting information about me!<br>
             <span style="color: #A6E22E;">projects</span>: tells you about projects i've worked on!<br>
+            <span style="color: #A6E22E;">github</span>: directs you to my github!<br>
         `,
         'about me': `
         `,
@@ -43,8 +52,8 @@
 ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝                                              
         </pre>
         <ul>
-            <li><span style="color: #F92672;">factful.io</span> - A web application capable of fact and spell checking for writing</li>
-            <li><span style="color: #F92672;">stop sign</span> - A discord bot capable of integrating various moderation features into a discord server</li>
+            <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="0">factful.io</span> - A web application capable of fact and spell checking for writing</li>
+            <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="1">stop sign</span> - A discord bot capable of integrating various moderation features into a discord server</li>
         </ul>
         `
     };
@@ -66,23 +75,34 @@
 
             setTimeout(() => {
                 terminalLines.value.push();
-            }, 500);
+            }, 500)
         }
-    };
+    }
 
     function handleInput(event) {
         const content = event.target?.textContent.trim();
 
         isTyping.value = content.length > 0;
-    };
+    }
 
     function handleFocus() {
         isFocused.value = true;
-    };
+    }
 
     function handleBlur() {
         isFocused.value = false;
-    };
+    }
+
+    onMounted(() => {
+        document.addEventListener('click', (event) => {
+            if (event.target.classList.contains('new-window')) {
+                const key = parseInt(event.target.getAttribute('key'));
+
+                props.windows[key].isOpened = true
+                props.windows[key].zIndex = props.maxZIndex + 1
+            }
+        })
+    })
 </script>
 
 <template>
