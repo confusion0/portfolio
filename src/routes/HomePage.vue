@@ -1,7 +1,8 @@
 <script setup>
-  import { ref } from 'vue';
+  import { reactive, ref } from 'vue';
 
   import MainTerminal from '../components/MainTerminal.vue'
+  import iFrameWindow from '../components/iFrameWindow.vue';
 
   import interact from '@interactjs/interact';
   import '@interactjs/modifiers'
@@ -9,9 +10,22 @@
   import '@interactjs/actions/resize'
   import '@interactjs/auto-start'
 
-  const zIndex = ref(0);
+  const maxZIndex = ref(3);
+  const windows = reactive([
+    { url: 'https://factful.io', zIndex: 1, isOpened: false },
+    { url: 'https://stopsign.glitch.me', zIndex: 2, isOpened: false },
+  ])
+
+  const bringWindowToFront = (index) => {
+    windows[index].zIndex = maxZIndex.value++;
+  };
 
   const mainTerminalIsOpened = ref(true)
+  const mainTerminalZIndex = ref(0)
+
+  const bringMainTerminalToFront = () => {
+    mainTerminalZIndex.value = maxZIndex.value++;
+  }
 
   function dragMoveListener(event) {
     const target = event.target;
@@ -67,5 +81,7 @@
 </script>
 
 <template>
-    <MainTerminal :isOpened=mainTerminalIsOpened />
+    <MainTerminal @click="bringMainTerminalToFront()" :isOpened=mainTerminalIsOpened :zIndex="mainTerminalZIndex" />
+
+    <iFrameWindow v-for="(window, index) in windows" @click="bringWindowToFront(index)" :isOpened="window.isOpened" :zIndex=window.zIndex :url="window.url" :key="index" />
 </template>
