@@ -74,6 +74,7 @@
         <ul>
             <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="0">factful.io</span> - A web application capable of correcting grammar/spelling in writing, and also fact checking content with up-to-date sources</li>
             <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="1">stop sign</span> - A discord bot capable of integrating various moderation features into a discord server</li>
+            <li><span style="color: #F92672; cursor: pointer;" class="new-window" key="2">DouBingo</span> - A bingo game that involves going outside and taking pictures of wildlife (hackathon project)</li>
             <li><a href="https://github.com/confusion0/health-chair" target="_blank" style="color: #F92672;">health chair</a> - A small hackathon project that can take in user health data and provide a personalized daily todo list</li>
         </ul>
         `,

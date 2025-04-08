@@ -14,6 +14,7 @@
   const windows = reactive([
     { url: 'https://factful.io', zIndex: 1, isOpened: false },
     { url: 'https://stopsign.glitch.me', zIndex: 2, isOpened: false },
+    { url: 'https://dou-bingo-9lx4.vercel.app/', zIndex: 3, isOpened: false }
   ]);
 
   const bringWindowToFront = (index) => {
